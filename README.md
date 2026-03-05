@@ -1,3 +1,7 @@
-# Shaders
+# Barebones C shader reproduction
 
-`ffmpeg -framerate 60 -i output/output-%02d.ppm -c:v libx264 -pix_fmt yuv420p output/output.mp4`
+Using CPU-only code, this program creates shader frames in the `.ppm` file format, and then compiles them into an `.mp4` video file using ffmpeg.
+
+To create the output video file, run `make` in the root directory.
+
+All credit related to the shader itself goes to [@xordev](https://www.xordev.com/).
