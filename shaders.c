@@ -17,8 +17,7 @@ static vec3 shader_march(float t, vec2 r, vec2 FC) {
     vec3 a = v3s(0.f);
     vec3 b = v3s(0.f);
 
-    while (iter++ < 900.f)
-    {
+    while (iter++ < 900.f) {
         vec3 sp = v3div(v3ceil(v3add(p, v3mul(d, v3step(a, b)))), v3s(28.f));
         a = sp;
 
@@ -42,8 +41,7 @@ static vec3 shader_march(float t, vec2 r, vec2 FC) {
 
 // Adapted from https://x.com/XorDev/status/1441621505704669185
 // Full fwidth implementation
-static vec3 shader(float t, vec2 r, vec2 FC)
-{
+static vec3 shader(float t, vec2 r, vec2 FC) {
     vec3 p = shader_march(t, r, FC); // current pixel
     vec3 px = shader_march(t, r, v2(FC.x + 1.f, FC.y)); // neighbour in x
     vec3 py = shader_march(t, r, v2(FC.x, FC.y + 1.f)); // neighbour in y
@@ -66,8 +64,7 @@ typedef struct {
     float t;
 } FrameJob;
 
-static void* render_frame(void *arg)
-{
+static void* render_frame(void *arg) {
     FrameJob *job = (FrameJob *)arg;
 
     int width = job->width;
@@ -110,8 +107,7 @@ static void* render_frame(void *arg)
     return NULL;
 }
 
-int main(void)
-{
+int main(void) {
     const int WIDTH = 16 * 60;
     const int HEIGHT = 9 * 60;
     const float FPS = 60.f;
